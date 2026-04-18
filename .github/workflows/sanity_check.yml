@@ -1,0 +1,33 @@
+name: sanity_checks
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'src/**'
+      - 'includes/**'
+      - 'Makefile'
+      - 'meson.build'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+    norminette:
+        name: 'Norminette 42'
+        runs-on: 'ubuntu-lastest'
+        steps:
+            - uses: actions/checkout@v6
+              with:
+                submodules: true
+                fetch-depth: 0
+            - uses: actions/setup-python@v6
+              with:
+                python-version: '3.11'
+            - run: python3 -m pip install -U norminette
+            - name: Norminette "libft"
+              run: norminette ${{ github.workspace }}/subprojects/libft
+            - name: Norminette "cub3d"
+              run: norminette ${{ github.workspace }}/includes ${{ github.workspace }}/src
+

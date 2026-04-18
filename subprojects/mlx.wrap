@@ -1,0 +1,4 @@
+[wrap-git]
+url = https://github.com/seekrs/MacroLibX.git
+revision = v2.2.6
+depth = 1

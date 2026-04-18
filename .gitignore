@@ -1,0 +1,5 @@
+build/
+subproject/.wraplock
+*.o
+*.d
+cub3d

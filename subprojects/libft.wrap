@@ -1,0 +1,4 @@
+[wrap-git]
+url = https://github.com/0verlight/libft.git
+revision = HEAD
+depth = 1
