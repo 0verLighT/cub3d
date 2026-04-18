@@ -1,6 +1,6 @@
 CC			= cc
 CFLAGS		= -MP -MMD -Wall -Werror -Wextra -g
-NAME		= cub3d
+NAME		= cub3D
 BUILD_DIR	= builddir/
 MLX_DIR		= ./subprojects/mlx
 LIBFT_DIR	= ./subprojects/libft

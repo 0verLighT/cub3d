@@ -1,5 +1,5 @@
 project(
-  'cub3d',
+  'cub3D',
   'c',
   license : 'MIT',
   meson_version: '>= 0.63.0',
@@ -28,7 +28,7 @@ deps = [
 inc = include_directories('includes')
 
 executable(
-  'cub3d',
+  'cub3D',
   sources,
   include_directories : inc,
   dependencies : deps,
