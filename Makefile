@@ -5,7 +5,10 @@ BUILD_DIR	= builddir/
 MLX_DIR		= ./subprojects/mlx
 LIBFT_DIR	= ./subprojects/libft
 
-SOURCES = src/main.c
+SRC_DIR = src
+SRC = main.c
+SOURCES = $(addprefix $(SRC_DIR)/, $(SRC))
+
 OBJS = $(SOURCES:%.c=$(BUILD_DIR)%.o)
 DEPS = $(SOURCES:%.c=$(BUILD_DIR)%.d)
 
