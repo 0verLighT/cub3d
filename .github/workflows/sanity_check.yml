@@ -44,7 +44,7 @@ jobs:
         - name: Install dependencies
           run: |
               sudo apt-get update -y
-              sudo apt-get install -y --no-install-recommends libxext-dev libx11-dev libbsd-dev
+              sudo apt-get install -y --no-install-recommends libxext-dev libx11-dev libsdl2-dev libbsd-dev
         - name: Build
           run: make
     meson:
