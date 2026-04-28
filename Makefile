@@ -15,7 +15,7 @@ DEPS = $(SOURCES:%.c=$(BUILD_DIR)%.d)
 MLX			= ./subprojects/mlx/libmlx.so
 LIBFT		= ./subprojects/libft/libft.a
 
-INCLUDES	= -Iincludes -I$(MLX_DIR)/includes -I$(LIBFT_DIR)
+INCLUDES	= -Iincludes -I$(MLX_DIR)/includes -I$(LIBFT_DIR)/includes
 LDFLAGS		= -L$(MLX_DIR) -L$(LIBFT_DIR) -Wl,-rpath,$($(MLX_DIR))
 LDLIBS		= -lmlx -lft -lm -lSDL2
 

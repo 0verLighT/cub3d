@@ -3,3 +3,6 @@ subproject/.wraplock
 *.o
 *.d
 cub3D
+*.cub
+compile_commands.json
+.direnv/
