@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
+/*   By: apuyane <apuyane@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 02:11:15 by amartel           #+#    #+#             */
-/*   Updated: 2026/04/28 02:50:09 by amartel          ###   ########.fr       */
+/*   Updated: 2026/04/29 00:26:36 by apuyane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ int	ft_valid_path(char *filename)
 
 	if (!ft_strnstr(filename + ft_strlen(filename) - 4, ".cub", 4))
 	{
-		printf("Error\n");
+		printf("Error, wrong extension\n");
 		exit(1);
 	}
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 	{
-		printf("Error\n");
+		perror("open");
 		exit(1);
 	}
 	return (fd);
