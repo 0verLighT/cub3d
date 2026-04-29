@@ -6,7 +6,7 @@
 /*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 02:11:15 by amartel           #+#    #+#             */
-/*   Updated: 2026/04/29 05:10:09 by amartel          ###   ########.fr       */
+/*   Updated: 2026/04/29 05:22:16 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,24 +27,6 @@ char *get_line_from_id(char *id, char *file)
 			return (line);
 		free(line);
 	}
-}
-
-void	ft_valid_path(char *filename)
-{
-	int	fd;
-
-	if (!ft_strnstr(filename + ft_strlen(filename) - 4, ".cub", 4))
-	{
-		printf("Error, wrong extension\n");
-		exit(1);
-	}
-	fd = open(filename, O_RDONLY);
-	if (fd == -1)
-	{
-		perror("open");
-		exit(1);
-	}
-	close(fd);
 }
 
 int	*char_to_color(char *c)
