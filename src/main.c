@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apuyane <apuyane@student.42angouleme.fr    +#+  +:+       +#+        */
+/*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 02:11:15 by amartel           #+#    #+#             */
-/*   Updated: 2026/04/29 04:27:55 by apuyane          ###   ########.fr       */
+/*   Updated: 2026/04/29 05:10:09 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d/cub3d.h"
+#include "cub3d/parser.h"
 
 char *get_line_from_id(char *id, char *file)
 {
@@ -106,8 +106,8 @@ int	check_config(t_config *config)
 {
 	if (check_color(config->c) || check_color(config->f))
 		return (1);
-	// if (file_exist(config->no) || file_exist(config->so) || file_exist(config->we) || file_exist(config->ea))
-		// return (1);
+	if (file_exist(config->no) || file_exist(config->so) || file_exist(config->we) || file_exist(config->ea))
+		return (1);
 	return (0);
 }
 

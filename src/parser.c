@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/27 22:24:37 by apuyane           #+#    #+#             */
-/*   Updated: 2026/04/29 05:08:37 by amartel          ###   ########.fr       */
+/*   Created: 2026/04/29 00:36:00 by amartel           #+#    #+#             */
+/*   Updated: 2026/04/29 05:13:13 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "cub3d/parser.h"
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include "libft.h"
-
-typedef	struct s_config
+void	ft_valid_path(const char *filename)
 {
-	char	*no;
-	char	*so;
-	char	*we;
-	char	*ea;
-	int		*f;
-	int		*c;
-}				t_config;
+	int	fd;
 
-
-#endif
+	if (!ft_strnstr(filename + ft_strlen(filename) - 4, ".cub", 4))
+	{
+		printf("Error, wrong extension\n");
+		exit(1);
+	}
+	fd = open(filename, O_RDONLY);
+	if (fd == -1)
+	{
+		perror("open");
+		exit(1);
+	}
+	close(fd);
+}
