@@ -1,4 +1,4 @@
-use std::ffi::{c_char, c_int};
+use std::{ffi::{c_char, c_int}, fs::File, io::Write, str::Bytes};
 
 #[repr(C)]
 pub struct ffiConfig {
@@ -74,6 +74,18 @@ mod test {
     #[test]
     fn golbal_parser() {
         let file_name = "a.cub";
+        let content_file = "NO ./path_to_north
+SO ./path_to_south
+WE ./path_to_west
+EA ./path_to_east
+F 220,100,0
+C 225,30,0
+
+111111
+100001
+111111";
+        let mut file = File::create(file_name).expect("FAIL");
+        file.write(content_file.as_bytes()).expect("FAIL");
         let mut config = ffiConfig {
             no: std::ptr::null_mut(),
             so: std::ptr::null_mut(),
@@ -81,7 +93,7 @@ mod test {
             f: 0,
             c: 0,
         };
-        File::create(file_name).expect("FAIL: create file function");
+
         let c_str = CString::new(file_name).unwrap();
         unsafe {
             let res = ft_parser(&mut config, c_str.as_ptr());

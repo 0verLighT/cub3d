@@ -6,7 +6,7 @@
 /*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 02:11:15 by amartel           #+#    #+#             */
-/*   Updated: 2026/05/01 05:39:45 by amartel          ###   ########.fr       */
+/*   Updated: 2026/05/01 07:14:25 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ int	main(int ac, char **av)
 	}
 	config = ft_calloc(1, sizeof(t_config));
 	if (!config || ft_parser(config, av[1]) == false)
-		return (1); // need to free config
-	config = load_texture(av[1]);
-	if (check_config(config))
-		return (1); // need to free config
+	{
+		free(config);
+		return (1);
+	}
 	free(config);
 	return (0);
 }
