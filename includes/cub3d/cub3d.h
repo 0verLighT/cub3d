@@ -6,7 +6,7 @@
 /*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/27 22:24:37 by apuyane           #+#    #+#             */
-/*   Updated: 2026/04/29 05:08:37 by amartel          ###   ########.fr       */
+/*   Updated: 2026/05/01 05:14:30 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ typedef	struct s_config
 	char	*so;
 	char	*we;
 	char	*ea;
-	int		*f;
-	int		*c;
+	int		f[3];
+	int		c[3];
 }				t_config;
 
 

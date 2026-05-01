@@ -18,7 +18,8 @@ endif
 sources = files('src/main.c')
 
 parser = files(
-  'src/parser.c'
+  'src/parser.c',
+  'src/config.c'
 )
 
 inc = include_directories('includes')

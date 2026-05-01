@@ -7,7 +7,7 @@ MLX_DIR		= ./subprojects/mlx
 LIBFT_DIR	= ./subprojects/libft
 
 SRC_DIR = src
-SRC = main.c parser.c
+SRC = main.c parser.c config.c
 SOURCES = $(addprefix $(SRC_DIR)/, $(SRC))
 
 OBJS = $(SOURCES:%.c=$(BUILD_DIR)%.o)
