@@ -1,6 +1,8 @@
 [submodule "subprojects/libft"]
 	path = subprojects/libft
 	url = https://github.com/0verLighT/libft.git
+	ignore = dirty
 [submodule "subprojects/mlx"]
 	path = subprojects/mlx
 	url = https://github.com/seekrs/MacroLibX.git
+	ignore = dirty

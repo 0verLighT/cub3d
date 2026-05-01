@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
+/*   By: apuyane <apuyane@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 02:11:15 by amartel           #+#    #+#             */
-/*   Updated: 2026/05/01 02:17:00 by amartel          ###   ########.fr       */
+/*   Updated: 2026/05/01 02:49:35 by apuyane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ int	main(int ac, char **av)
 		printf("Error, wrong number of argumets\n");
 		return (1);
 	}
+	config = NULL;
 	if (ft_parser(config, av[1]) == false)
 		return (1);
 	config = load_texture(av[1]);
