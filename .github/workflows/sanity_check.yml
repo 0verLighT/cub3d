@@ -8,6 +8,8 @@ on:
       - 'includes/**'
       - 'Makefile'
       - 'meson.build'
+      - 'tests/**'
+    branches: ['main']
   pull_request:
     branches: ['*']
 
@@ -69,3 +71,27 @@ jobs:
           run: |
               meson setup build --prefix=$PWD/usr
               meson install -C build
+    rust-test:
+      name: cargo test
+      needs: norminette
+      runs-on: 'ubuntu-latest'
+      steps:
+        - uses: actions/checkout@v6
+          with:
+            submodules: true
+            fetch-depth: 0
+        - name: Install Python 3.12
+          uses: actions/setup-python@v6
+          with:
+            python-version: 3.12
+        - name: Install build tools && dependencies
+          run: |
+              sudo apt-get update -y
+              sudo apt-get install -y --no-install-recommends libxext-dev libx11-dev libbsd-dev
+              python3 -m pip install meson ninja
+        - name: Build with meson
+          run: |
+              meson setup build
+              meson compile -C build
+        - name: Run cargo test (Parser)
+          run: cargo test

@@ -6,3 +6,4 @@ cub3D
 *.cub
 compile_commands.json
 .direnv/
+/target

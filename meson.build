@@ -17,13 +17,27 @@ endif
 
 sources = files('src/main.c')
 
+parser = files(
+  'src/parser.c',
+  'src/config.c'
+)
+
+inc = include_directories('includes')
+
+static_library(
+  'cubparser',
+  parser,
+  include_directories: inc,
+  dependencies: dependency('libft'),
+)
+
+sources += parser
+
 deps = [
   dependency('libft'),
   dependency('mlx'),
   m_dep,
 ]
-
-inc = include_directories('includes')
 
 executable(
   'cub3D',
