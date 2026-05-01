@@ -6,7 +6,7 @@
 /*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 02:11:15 by amartel           #+#    #+#             */
-/*   Updated: 2026/04/29 05:22:16 by amartel          ###   ########.fr       */
+/*   Updated: 2026/05/01 02:17:00 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,18 +59,18 @@ t_config	*load_texture(char *filename)
 	return (config);
 }
 
-int	check_color(int *c)
+bool	check_color(int *c)
 {
 	if (c[0] > 255 || c[0] < 0)
-		return (1);
+		return (false);
 	if (c[1] > 255 || c[1] < 0)
-		return (1);
+		return (false);
 	if (c[2] > 255 || c[2] < 0)
-		return (1);
-	return (0);
+		return (false);
+	return (false);
 }
 
-int	file_exist(char *filename)
+bool	file_exist(char *filename)
 {
 	int fd;
 
@@ -78,19 +78,19 @@ int	file_exist(char *filename)
 	if (fd < 0)
 	{
 		perror("open");
-		return (1);
+		return (false);
 	}
 	close(fd);
-	return (0);
+	return (true);
 }
 
-int	check_config(t_config *config)
+bool	check_config(t_config *config)
 {
 	if (check_color(config->c) || check_color(config->f))
-		return (1);
+		return (false);
 	if (file_exist(config->no) || file_exist(config->so) || file_exist(config->we) || file_exist(config->ea))
-		return (1);
-	return (0);
+		return (false);
+	return (true);
 }
 
 int	main(int ac, char **av)
@@ -101,7 +101,8 @@ int	main(int ac, char **av)
 		printf("Error, wrong number of argumets\n");
 		return (1);
 	}
-	ft_valid_path(av[1]);
+	if (ft_parser(config, av[1]) == false)
+		return (1);
 	config = load_texture(av[1]);
 	if (check_config(config))
 		return 1;
