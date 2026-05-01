@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
+/*   By: apuyane <apuyane@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 00:36:00 by amartel           #+#    #+#             */
-/*   Updated: 2026/05/01 07:14:06 by amartel          ###   ########.fr       */
+/*   Updated: 2026/05/01 08:50:40 by apuyane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,6 @@ bool	ft_parser(t_config *conf, const char *filename)
 {
 	if (ft_valid_path(filename) == false)
 		return (false);
-	conf = load_texture(filename);
-	if (check_config(filename))
-	{
-		free(conf);
-		return (false);
-	}
+	(void)conf;
 	return (true);
 }

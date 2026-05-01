@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   config.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
+/*   By: apuyane <apuyane@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/01 05:37:44 by amartel           #+#    #+#             */
-/*   Updated: 2026/05/01 07:11:07 by amartel          ###   ########.fr       */
+/*   Updated: 2026/05/01 08:55:39 by apuyane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ t_config	*load_texture(char *filename)
 {
 	t_config	*config;
 
+	config = ft_calloc(1, sizeof(t_config));
 	config->no = get_line_from_id("NO", filename);
 	config->so = get_line_from_id("SO", filename);
 	config->we = get_line_from_id("WE", filename);
@@ -72,10 +73,7 @@ bool	check_color(int c)
 
 bool	check_config(t_config *config)
 {
-	if (check_color(config->c) || check_color(config->f))
-		return (false);
-	if (!file_exist(config->no) || !file_exist(config->so)
-		|| !file_exist(config->we) || !file_exist(config->ea))
+	if (file_exist(config->no) || file_exist(config->so) || file_exist(config->we) || file_exist(config->ea))
 		return (false);
 	return (true);
 }
