@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apuyane <apuyane@student.42angouleme.fr    +#+  +:+       +#+        */
+/*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 00:33:47 by amartel           #+#    #+#             */
-/*   Updated: 2026/05/01 02:45:50 by apuyane          ###   ########.fr       */
+/*   Updated: 2026/05/01 05:04:33 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ typedef struct s_config t_config;
 
 bool	ft_valid_path(const char *filename);
 bool	ft_parser(t_config *conf, const char *filename);
+bool	file_exist(const char *filename);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apuyane <apuyane@student.42angouleme.fr    +#+  +:+       +#+        */
+/*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 02:11:15 by amartel           #+#    #+#             */
-/*   Updated: 2026/05/01 02:49:35 by apuyane          ###   ########.fr       */
+/*   Updated: 2026/05/01 05:07:35 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,20 +70,6 @@ bool	check_color(int *c)
 	return (false);
 }
 
-bool	file_exist(char *filename)
-{
-	int fd;
-
-	fd = open(filename, O_RDONLY);
-	if (fd < 0)
-	{
-		perror("open");
-		return (false);
-	}
-	close(fd);
-	return (true);
-}
-
 bool	check_config(t_config *config)
 {
 	if (check_color(config->c) || check_color(config->f))
@@ -106,6 +92,6 @@ int	main(int ac, char **av)
 		return (1);
 	config = load_texture(av[1]);
 	if (check_config(config))
-		return 1;
+		return (1);
 	return (0);
 }
